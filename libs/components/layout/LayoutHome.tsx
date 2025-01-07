@@ -1,23 +1,36 @@
-import { Stack } from "@mui/material";
-import Head from "next/head";
+import { Container, Stack } from "@mui/material"
+import { brown, green } from "@mui/material/colors"
+import Head from "next/head"
+import Top from "../Top";
+import Footer from "../Footer";
+import HeaderFilter from "@/libs/homepage/HeaderFilter";
 
-const withLayoutMain = (Component: any) => {
+
+const  withLayoutMain =  (Component: any) => {
   return (props: any) => {
-    return (
+    return(
       <>
-        <Head>
-          <title>Nestar</title>
-        </Head>
+      <Head>
+      <title>Nestar</title>
+      </Head>
         <Stack id="pc-wrap">
-          <Stack sx={{ background: "#81c784" }}>Header Home</Stack>
-          <Stack id="main">
+        <Stack id={"top"}>
+            <Top />
+          </Stack>
+          <Stack className={"header-main"}>
+            <Container className="container">
+              <HeaderFilter />
+            </Container>
+          </Stack>
+          <Stack id={"main"}>
             <Component {...props} />
           </Stack>
-          <Stack sx={{ background: "#a1887f" }}>Footer</Stack>
+          <Stack id={"footer"}>
+            <Footer />
+          </Stack>
         </Stack>
-      </>
-    );
-  };
-};
+    </>
+      )
+    };
 
-export default withLayoutMain;
+};
