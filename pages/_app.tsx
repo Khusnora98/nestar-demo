@@ -10,7 +10,8 @@ export default function App({ Component, pageProps }: AppProps) {
   const [theme, setTheme] = useState(createTheme(light));
 
   //Socket-io, Redux
-  return <ThemeProvider theme={theme}>
+  return 
+  <ThemeProvider theme={theme}>
     <CssBaseline />
     <Component {...pageProps} />
   </ThemeProvider>;
